@@ -51,9 +51,63 @@ let value: boolean | number;
 value = true;
 value = 10;
 
-// 配列の要素の型を指定
+// 配列の要素のデータ型を指定
 let arrayUni: (number | string)[];
 arrayUni = [0, 1, 2, "hello"];
+
+let company: "Facebook" | "Google" | "Amazon";
+company = "Amazon";
+// company = "Apple"; // エラーになる
+
+let memory: 256 | 512;
+memory = 512;
+// memory = 12; // エラーになる
+
+// typeof
+let msg: string = "Hi";
+let msg2: typeof msg;
+msg2 = "Hello";
+// msg2 = 1;  // エラーになる
+
+let animal = { cat: "small cat" };
+let newAnimal: typeof animal = { cat: "big cat" };
+
+// keyof
+type KEYS = {
+  primary: string;
+  secondary: string;
+};
+let key: keyof KEYS;
+key = "primary";
+
+// typeof + keyof
+const SPORTS = {
+  soccer: "Soccer",
+  baseball: "Baseball",
+};
+
+let KeySports: keyof typeof SPORTS;
+KeySports = "soccer";
+
+// enum
+enum OS {
+  Windows,
+  Mac,
+  Linux,
+}
+interface PC {
+  id: number;
+  OSType: OS;
+}
+const PC1: PC = {
+  id: 1,
+  OSType: OS.Windows,
+};
+
+const PC2: PC = {
+  id: 2,
+  OSType: OS.Mac,
+};
 
 function App() {
   return (
